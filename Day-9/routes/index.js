@@ -29,6 +29,7 @@ router.get("/css", (req, res) => {
   res.sendFile(path.join(rootDIR, "/public/stylesheets/style.css"));
 });
 
+// removed it cuz it was of 18mb 🤧
 router.get("/video", (req, res) => {
   res.sendFile(path.join(rootDIR, "/public/videos/video.mp4"));
 });
