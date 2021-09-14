@@ -25,3 +25,7 @@
 ### Day 8
 
 ✅ Read Express documentation
+
+### Day 9
+
+✅ View static files in localhost using express
