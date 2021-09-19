@@ -29,3 +29,7 @@
 ### Day 9
 
 ✅ View static files in localhost using express
+
+### Day 10
+
+✅ Hosted a todo app that i created recently
