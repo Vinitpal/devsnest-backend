@@ -32,4 +32,5 @@
 
 ### Day 10
 
-✅ Hosted a todo app that i created recently
+✅ Hosted a todo app that i created recently you can
+[see it here](https://kirua-todo-app.herokuapp.com/)
