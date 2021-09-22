@@ -34,3 +34,7 @@
 
 ✅ Hosted a todo app that i created recently you can
 [see it here](https://kirua-todo-app.herokuapp.com/)
+
+### Day 11
+
+✅ SQL injection in postgresql
