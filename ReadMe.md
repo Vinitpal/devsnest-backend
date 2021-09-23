@@ -38,3 +38,7 @@
 ### Day 11
 
 ✅ prevent SQL injection in db
+
+### Day 12
+
+✅ connect redis and postgresql with express
