@@ -37,4 +37,4 @@
 
 ### Day 11
 
-✅ SQL injection in postgresql
+✅ prevent SQL injection in db
