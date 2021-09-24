@@ -42,3 +42,7 @@
 ### Day 12
 
 ✅ connect redis and postgresql with express
+
+### Day 13
+
+✅ --- No THA ---
