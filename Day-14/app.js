@@ -38,7 +38,7 @@ app.use(
   })
 );
 
-app.use(passport, initialize());
+app.use(passport.initialize());
 require("./middlewares/passport")(passport);
 
 app.use("/", indexRouter);
