@@ -9,6 +9,7 @@ const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 
 app.use(express.json());
+app.get("/", (req, res) => res.send("Welcome to za warudo!"));
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 

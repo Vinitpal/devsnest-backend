@@ -3,12 +3,13 @@ const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
 
-const register = async (req, res) => {
-  const { name, role, email, password } = req.body;
+const register = async (req, role, res) => {
+  const { name, email, password } = req.body;
+
   try {
-    const alreadyExists = await User.findOne({ email });
+    const alreadyExists = await User.findOne({ where: { email: email } });
     if (alreadyExists) {
-      res.status(401).send({ message: "User already Exists" });
+      res.status(401).json({ message: "User already Exists" });
     }
 
     const salt = bcrypt.genSaltSync(saltRounds);
@@ -22,9 +23,11 @@ const register = async (req, res) => {
     });
 
     const savedUser = await newUser.save();
-    res.status(200).send({ message: "User registered successfully!" });
+    res.status(200).json({ message: "User registered successfully!" });
   } catch (error) {
     console.log(error);
-    res.status(500).send({ message: "something went wrong, cant register" });
+    res.status(500).json({ message: "something went wrong, cant register" });
   }
 };
+
+module.exports = register;

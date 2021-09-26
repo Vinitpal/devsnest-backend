@@ -15,8 +15,7 @@ const User = sequelize.define("user", {
   role: {
     // user - admin - superAdmin
     type: Sequelize.STRING,
-    allowNull: false,
-    default: "user",
+    defaultValue: "user",
   },
   email: {
     type: Sequelize.STRING,

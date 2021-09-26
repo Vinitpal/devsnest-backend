@@ -13,7 +13,7 @@ const registerInitialCheck = (req, res, next) => {
   ) {
     next();
   } else {
-    res.status(401).send({ message: "Initial Checks Failed" });
+    res.status(401).json({ message: "Initial Checks Failed" });
   }
 };
 
