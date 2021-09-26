@@ -6,9 +6,11 @@ require("dotenv").config();
 
 // routes
 const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login");
 
 app.use(express.json());
 app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
 app.use((error, req, res, next) => {
   console.log(error.message);

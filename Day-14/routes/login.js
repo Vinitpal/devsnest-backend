@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const login = require("../controllers/login");
+
+// middlewares and controllers
 const checkUserExists = require("../middlewares/checkUserExists");
+const login = require("../controllers/login");
 
 router.post("/", checkUserExists, login);
 
