@@ -1,19 +1,8 @@
-const { Sequelize } = require("sequelize");
+const Sequielize = require("sequelize");
 
-const sequelize = new Sequelize("postgres", "postgres", "password", {
+const sequielize = new Sequielize("session", "postgres", "password", {
   host: "localhost",
   dialect: "postgres",
 });
 
-sequelize.sync();
-
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("Connection established with DB");
-  } catch (err) {
-    console.log("Unable to connect with DB");
-  }
-})();
-
-module.exports = sequelize;
+module.exports = sequielize;

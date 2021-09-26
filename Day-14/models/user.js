@@ -1,33 +1,32 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../database");
+const sequelize = require("../database/index");
+const Sequelize = require("sequelize");
 
-const User = sequelize.define(
-  "User",
-  {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    role: {
-      type: DataTypes.STRING,
-      default: "user",
-    },
+const User = sequelize.define("user", {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+    autoIncrement: true,
   },
-  {
-    freezeTableName: true,
-  }
-);
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  role: {
+    // user - admin - superAdmin
+    type: Sequelize.STRING,
+    allowNull: false,
+    default: "user",
+  },
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: Sequelize.STRING,
+    min: 8,
+    allowNull: false,
+  },
+});
 
 module.exports = User;
