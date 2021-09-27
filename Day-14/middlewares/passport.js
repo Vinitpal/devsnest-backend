@@ -2,10 +2,15 @@ const User = require("../models/User");
 const SECRET_KEY = process.env.SECRET_KEY;
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-const passport = () => {
-  passport.use(
+const opts = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: SECRET_KEY,
+};
+
+const passport = async (p) => {
+  p.use(
     new Strategy(opts, async (payload, done) => {
-      await User.findById(payload.id)
+      await User.findByPk(payload.id)
         .then((user) => {
           if (user) {
             return done(null, user);

@@ -23,7 +23,9 @@ const register = async (req, role, res) => {
     });
 
     const savedUser = await newUser.save();
-    res.status(200).json({ message: "User registered successfully!" });
+    res
+      .status(200)
+      .json({ message: "User registered successfully!", user: savedUser });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "something went wrong, cant register" });

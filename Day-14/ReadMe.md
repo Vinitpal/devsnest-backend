@@ -19,4 +19,4 @@
 - make controllers (working logic - final response)
 
   -> (register) -> {alreadyExists, hashPassword, save}
-  -> (login) -> {make jwt token through id and email, send response}
+  -> (login) -> {make jwt token, send response}

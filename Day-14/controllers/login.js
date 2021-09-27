@@ -12,25 +12,29 @@ const login = async (req, res) => {
 
     const userId = user.dataValues.id;
     const role = user.dataValues.role;
+    const name = user.dataValues.name;
 
     const token = jwt.sign(
-      { userId: userId, email: email },
+      {
+        userId: userId,
+        name: name,
+        role: role,
+        email: email,
+      },
       process.env.SECRET_KEY,
       {
-        expiresIn: "1h",
+        expiresIn: "360000000",
       }
     );
 
     switch (role) {
       case "admin":
-        return res.status(200).json({ message: "Welcome Admin", user, token });
+        res.status(200).json({ message: "Welcome Admin", user, token });
       case "superAdmin":
-        return res
-          .status(200)
-          .json({ message: "Welcome Super Admin", user, token });
+        res.status(200).json({ message: "Welcome Super Admin", user, token });
 
       default:
-        return res.status(200).json({ message: "Welcome User", user });
+        res.status(200).json({ message: "Welcome User", user, token });
     }
   } catch (error) {
     console.log(error);
