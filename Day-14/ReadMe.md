@@ -6,16 +6,17 @@
 
 - make a model (User) -> {id, name, role, email, password}
 
-- setup routes -> {register, adminRegister, superAdminRegister, userLogin, adminLogin, superAdminLogin}
+- setup routes -> {register, login, userDashboard, adminDashboard}
 
-- setup working logic functions in controllers
+  -> (register) -> { InitialChecks for validation, setRole ,registerController}
+  -> (login) -> {checkUserExists, checkRole ,checkPassword, loginController}
+  -> (dashboard) -> { userAuth: checkToken, dashboardController}
 
-  -> (register, adminRegister, superAdminRegister) -> { InitialChecks for validation, role ,registerController}
+- make middlewares
 
-  -> (userLogin) -> {checkUserExists, checkPassword, make jwt token, return token and user}
+  -> {registerInitialCheck, checkUserExists, checkPassword, checkRole, userAuth, passport}
 
-  -> (adminLogin, superAdminLogin) -> {checkUserExists, checkRole, checkPassword, make jwt token, return token and user}
+- make controllers (working logic - final response)
 
-- make middleware for registerInitialCheck, checkUserExists, checkPassword
-- make controllers
   -> (register) -> {alreadyExists, hashPassword, save}
+  -> (login) -> {make jwt token through id and email, send response}

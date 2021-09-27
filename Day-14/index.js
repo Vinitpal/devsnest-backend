@@ -3,12 +3,16 @@ const express = require("express");
 const app = express();
 const sequelize = require("./database/index");
 require("dotenv").config();
+const passport = require("passport");
 
-// routes
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 
 app.use(express.json());
+app.use(passport.initialize());
+require("./middlewares/passport")(passport);
+
+// routes
 app.get("/", (req, res) => res.send("Welcome to za warudo!"));
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
