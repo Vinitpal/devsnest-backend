@@ -12,6 +12,7 @@ const passport = require("passport");
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const dashBoardRouter = require("./routes/dashboard");
+const productsRouter = require("./routes/products");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -41,6 +42,7 @@ app.get("/", (req, res) => res.send("Welcome to za warudo!"));
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/dashboard", dashBoardRouter);
+app.use("/products", productsRouter);
 
 app.use((error, req, res, next) => {
   console.log(error);
