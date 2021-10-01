@@ -26,8 +26,8 @@ const register = async (req, res) => {
       password: hash,
       fullName: "Kirua",
     });
-    const savedUser = await newUser.save();
 
+    const savedUser = await newUser.save();
     res.status(201).send("User registered");
   } catch (err) {
     console.log(err);
