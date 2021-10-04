@@ -54,3 +54,7 @@
 ### Day 15
 
 ✅ Pagination api of products
+
+### Day 16
+
+✅ Stream a static video file
